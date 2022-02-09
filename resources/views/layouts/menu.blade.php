@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="#">
+                <a class="c-sidebar-nav-link" href="{{ route('suplier.index') }}">
                     <span class="c-sidebar-nav-icon"></span> Suplier
                 </a>
             </li>

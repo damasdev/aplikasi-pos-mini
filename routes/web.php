@@ -21,5 +21,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::resources([
     'kategori' => App\Http\Controllers\KategoriController::class,
     'pelanggan' => App\Http\Controllers\PelangganController::class,
+    'suplier' => App\Http\Controllers\SuplierController::class,
 ]);
 
