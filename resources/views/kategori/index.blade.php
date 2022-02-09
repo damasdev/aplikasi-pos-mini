@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    {!! $dataTable->table(['class' => 'table table-striped table-bordered nowrap']) !!}
+                    {!! $dataTable->table(['class' => 'table table-striped table-bordered nowrap'], false) !!}
                 </div>
             </div>
         </div>
