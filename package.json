@@ -24,6 +24,7 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^32.0.0",
         "datatables.net-bs4": "^1.11.4",
         "datatables.net-buttons-bs4": "^2.2.2"
     }

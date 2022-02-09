@@ -15,7 +15,7 @@
                         </option>
                     @endforeach
                 </x-form-select>
-                <x-form-textarea name="deskripsi" label="Deskrikpsi" />
+                <x-form-textarea name="deskripsi" label="Deskrikpsi" id="editor"/>
                 <x-form-input name="harga" label="Harga" type="number"/>
                 <x-form-submit id="form-submit" hidden />
             </x-form>

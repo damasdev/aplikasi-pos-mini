@@ -18,7 +18,7 @@
                     </tr>
                     <tr>
                         <td>Deskripsi</td>
-                        <td>{{ $produk->deskripsi }}</td>
+                        <td>{!! $produk->deskripsi !!}</td>
                     </tr>
                     <tr>
                         <td>Harga</td>

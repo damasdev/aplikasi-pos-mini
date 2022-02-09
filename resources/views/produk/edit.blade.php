@@ -16,7 +16,7 @@
                         </option>
                     @endforeach
                 </x-form-select>
-                <x-form-textarea name="deskripsi" label="Deskrikpsi">{!! $produk->deskripsi !!}</x-form-textarea>
+                <x-form-textarea name="deskripsi" label="Deskrikpsi" id="editor">{!! $produk->deskripsi !!}</x-form-textarea>
                 <x-form-input name="harga" label="Harga" type="number" :value="$produk->harga" />
                 <x-form-submit id="form-submit" hidden />
             </x-form>
