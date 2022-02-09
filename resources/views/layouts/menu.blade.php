@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="#">
+                <a class="c-sidebar-nav-link" href="{{ route('produk.index') }}">
                     <span class="c-sidebar-nav-icon"></span> Produk
                 </a>
             </li>

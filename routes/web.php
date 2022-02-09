@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resources([
+    'produk' => App\Http\Controllers\ProdukController::class,
     'kategori' => App\Http\Controllers\KategoriController::class,
     'pelanggan' => App\Http\Controllers\PelangganController::class,
     'suplier' => App\Http\Controllers\SuplierController::class,
