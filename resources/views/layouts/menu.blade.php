@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="#">
+                <a class="c-sidebar-nav-link" href="{{ route('kategori.index') }}">
                     <span class="c-sidebar-nav-icon"></span> Kategori
                 </a>
             </li>
