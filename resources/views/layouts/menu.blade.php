@@ -10,7 +10,7 @@
         </a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="#">
+                <a class="c-sidebar-nav-link" href="{{ route('pelanggan.index') }}">
                     <span class="c-sidebar-nav-icon"></span> Pelanggan
                 </a>
             </li>
