@@ -42,3 +42,7 @@ Halaman Daftar Produk:
 Halaman Login:
 
 ![Login](/../dev/screenshot/login.png?raw=true "Login")
+
+Master Data:
+
+![Master](/../dev/screenshot/tabel-produk.png?raw=true "Master")
