@@ -23,5 +23,6 @@ Route::resources([
     'kategori' => App\Http\Controllers\KategoriController::class,
     'pelanggan' => App\Http\Controllers\PelangganController::class,
     'suplier' => App\Http\Controllers\SuplierController::class,
+    'user' => App\Http\Controllers\UserController::class,
 ]);
 

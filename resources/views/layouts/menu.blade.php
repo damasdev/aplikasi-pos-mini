@@ -29,6 +29,11 @@
                     <span class="c-sidebar-nav-icon"></span> Kategori
                 </a>
             </li>
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" href="{{ route('user.index') }}">
+                    <span class="c-sidebar-nav-icon"></span> User
+                </a>
+            </li>
         </ul>
     </li>
 @endcan
