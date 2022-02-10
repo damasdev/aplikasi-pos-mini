@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(KategoriSeeder::class);
         $this->call(ProdukSeeder::class);
         $this->call(PelangganSeeder::class);
+        $this->call(SuplierSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

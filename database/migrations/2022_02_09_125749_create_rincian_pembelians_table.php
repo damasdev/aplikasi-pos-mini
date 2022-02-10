@@ -15,8 +15,8 @@ class CreateRincianPembeliansTable extends Migration
     {
         Schema::create('rincian_pembelian', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('produk_id');
-            $table->unsignedBigInteger('pembelian_id');
+            $table->unsignedBigInteger('produk_id')->index();
+            $table->unsignedBigInteger('pembelian_id')->index();
             $table->integer('total');
             $table->timestamps();
 

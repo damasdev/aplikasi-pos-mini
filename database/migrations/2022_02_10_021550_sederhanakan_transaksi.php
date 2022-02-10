@@ -19,14 +19,14 @@ class SederhanakanTransaksi extends Migration
 
         // Update Table
         Schema::table('pembelian', function (Blueprint $table) {
-            $table->unsignedBigInteger('produk_id');
+            $table->unsignedBigInteger('produk_id')->index();
             $table->integer('total')->default('1')->after('tanggal');
 
             $table->foreign('produk_id')->on('produk')->references('id')->onDelete('cascade');
         });
 
         Schema::table('penjualan', function (Blueprint $table) {
-            $table->unsignedBigInteger('produk_id');
+            $table->unsignedBigInteger('produk_id')->index();
             $table->integer('total')->default('1')->after('tanggal');
 
             $table->foreign('produk_id')->on('produk')->references('id')->onDelete('cascade');

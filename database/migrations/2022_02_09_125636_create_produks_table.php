@@ -18,7 +18,7 @@ class CreateProduksTable extends Migration
             $table->string('nama', 150);
             $table->text('deskripsi');
             $table->integer('harga');
-            $table->unsignedBigInteger('kategori_id');
+            $table->unsignedBigInteger('kategori_id')->index();
             $table->timestamps();
 
             $table->foreign('kategori_id')->on('kategori')->references('id')->onDelete('cascade');

@@ -6,7 +6,7 @@
 <li class="c-sidebar-nav-title">Menu</li>
 <li class="c-sidebar-nav-item">
     <a class="c-sidebar-nav-link" href="{{ route('keranjang') }}">
-        <i class="c-sidebar-nav-icon cil-cart"></i> Keranjang
+        <i class="c-sidebar-nav-icon cil-cart"></i> Daftar Produk
     </a>
 </li>
 <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">

@@ -2,10 +2,9 @@
 
 @section('content')
     <div class="container-fluid">
-        <h2 class="mb-4">Produk</h2>
         <div class="row mb-4">
             @foreach ($produk as $item)
-                <div class="col-sm-6 col-md-4 mb-4">
+                <div class="col-md-4 mb-4">
                     <x-card class="h-100 text-center">
                         <div>
                             <div class="mb-4">
@@ -74,7 +73,7 @@
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-        <li class="breadcrumb-item active">Keranjang</li>
+        <li class="breadcrumb-item active">Produk</li>
     </ol>
 @endsection
 

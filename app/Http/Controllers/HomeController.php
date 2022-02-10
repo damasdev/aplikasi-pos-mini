@@ -53,7 +53,13 @@ class HomeController extends Controller
      */
     public function penjualan()
     {
-        return view('laporan.penjualan');
+        $penjualan = Penjualan::sum('total');
+        $produk = Penjualan::select(DB::raw('produk.nama as produk, SUM(penjualan.total) as total'))->leftJoin('produk', 'produk.id', 'penjualan.produk_id')->groupBy('produk')->get();
+
+        return view('laporan.penjualan', [
+            'penjualan' => $penjualan,
+            'produk' => $produk,
+        ]);
     }
 
     /**
@@ -63,7 +69,13 @@ class HomeController extends Controller
      */
     public function pembelian()
     {
-        return view('laporan.pembelian');
+        $pembelian = Pembelian::sum('total');
+        $produk = Pembelian::select(DB::raw('produk.nama as produk, SUM(pembelian.total) as total'))->leftJoin('produk', 'produk.id', 'pembelian.produk_id')->groupBy('produk')->get();
+
+        return view('laporan.pembelian', [
+            'pembelian' => $pembelian,
+            'produk' => $produk,
+        ]);
     }
 
     /**
