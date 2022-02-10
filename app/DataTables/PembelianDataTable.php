@@ -33,8 +33,10 @@ class PembelianDataTable extends DataTable
     public function query(Pembelian $model)
     {
         return $model->newQuery()
-            ->selectRaw('pembelian.id, pembelian.tanggal, pembelian.total, produk.nama as produk, suplier.nama as suplier')
-            ->leftJoin('produk', 'produk.id', 'pembelian.produk_id')->leftJoin('suplier', 'suplier.id', 'pembelian.suplier_id');
+            ->selectRaw('pembelian.id, pembelian.tanggal, pembelian.total, produk.nama as produk, suplier.nama as suplier, users.name as user')
+            ->leftJoin('produk', 'produk.id', 'pembelian.produk_id')
+            ->leftJoin('users', 'users.id', 'pembelian.user_id')
+            ->leftJoin('suplier', 'suplier.id', 'pembelian.suplier_id');
     }
 
     /**
@@ -69,6 +71,7 @@ class PembelianDataTable extends DataTable
             Column::make('suplier')->name('suplier.nama'),
             Column::make('produk')->name('produk.nama'),
             Column::make('total'),
+            Column::make('user')->name('user.name'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

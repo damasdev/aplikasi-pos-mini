@@ -33,8 +33,10 @@ class PenjualanDataTable extends DataTable
     public function query(Penjualan $model)
     {
         return $model->newQuery()
-            ->selectRaw('penjualan.id, penjualan.tanggal, penjualan.total, produk.nama as produk, pelanggan.nama as pelanggan')
-            ->leftJoin('produk', 'produk.id', 'penjualan.produk_id')->leftJoin('pelanggan', 'pelanggan.id', 'penjualan.pelanggan_id');
+            ->selectRaw('penjualan.id, penjualan.tanggal, penjualan.total, produk.nama as produk, pelanggan.nama as pelanggan, users.name as user')
+            ->leftJoin('produk', 'produk.id', 'penjualan.produk_id')
+            ->leftJoin('users', 'users.id', 'penjualan.user_id')
+            ->leftJoin('pelanggan', 'pelanggan.id', 'penjualan.pelanggan_id');
     }
 
     /**
@@ -69,6 +71,7 @@ class PenjualanDataTable extends DataTable
             Column::make('pelanggan')->name('pelanggan.nama'),
             Column::make('produk')->name('produk.nama'),
             Column::make('total'),
+            Column::make('user')->name('user.name'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

@@ -22,4 +22,9 @@ class Penjualan extends Model
     {
         return $this->belongsTo(Produk::class, 'produk_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
