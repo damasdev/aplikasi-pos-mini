@@ -24,7 +24,7 @@
             <div>
                 <div class="row">
                     @foreach ($produk as $item)
-                        <div class="col-sm-3 mb-2">
+                        <div class="col-sm-6 col-md-3 mb-2">
                             <div class="c-callout c-callout-info"><small class="text-muted">{{ $item->produk }}</small>
                                 <div class="text-value-lg">{{ $item->total }}</div>
                             </div>
