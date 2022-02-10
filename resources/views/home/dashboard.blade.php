@@ -111,7 +111,8 @@
                         ticks: {
                             beginAtZero: true,
                             maxTicksLimit: 5,
-                            stepSize: Math.ceil(10 / 5),
+                            stepSize: Math.ceil({!! max(array_merge(explode(',', $grafik['penjualan']), explode(',', $grafik['pembelian']))) + 3 !!} / 3),
+                            max: {!! max(array_merge(explode(',', $grafik['penjualan']), explode(',', $grafik['pembelian']))) + 3 !!}
                         }
                     }]
                 },

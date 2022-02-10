@@ -16,20 +16,35 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth']], function () {
 
-// Transaksi
-Route::resources([
-    'penjualan' => App\Http\Controllers\PenjualanController::class,
-    'pembelian' => App\Http\Controllers\PembelianController::class,
-]);
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/keranjang', [App\Http\Controllers\HomeController::class, 'keranjang'])->name('keranjang');
 
-// Master Data
-Route::resources([
-    'produk' => App\Http\Controllers\ProdukController::class,
-    'kategori' => App\Http\Controllers\KategoriController::class,
-    'pelanggan' => App\Http\Controllers\PelangganController::class,
-    'suplier' => App\Http\Controllers\SuplierController::class,
-    'user' => App\Http\Controllers\UserController::class,
-]);
+    // Transaksi
+    Route::resources([
+        'penjualan' => App\Http\Controllers\PenjualanController::class,
+        'pembelian' => App\Http\Controllers\PembelianController::class,
+    ]);
+});
 
+// ADMIN
+Route::group(['middleware' => ['auth', 'can:admin']], function () {
+
+    // Laporan
+    Route::group([
+        'prefix' => 'laporan'
+    ], function () {
+        Route::get('penjualan', [App\Http\Controllers\HomeController::class, 'penjualan'])->name('laporan.penjualan');
+        Route::get('pembelian', [App\Http\Controllers\HomeController::class, 'pembelian'])->name('laporan.pembelian');
+    });
+
+    // Master Data
+    Route::resources([
+        'produk' => App\Http\Controllers\ProdukController::class,
+        'kategori' => App\Http\Controllers\KategoriController::class,
+        'pelanggan' => App\Http\Controllers\PelangganController::class,
+        'suplier' => App\Http\Controllers\SuplierController::class,
+        'user' => App\Http\Controllers\UserController::class,
+    ]);
+});

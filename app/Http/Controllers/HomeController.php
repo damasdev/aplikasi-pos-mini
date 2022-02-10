@@ -6,21 +6,10 @@ use App\Helper\DateFormater;
 use App\Helper\StringFormater;
 use App\Models\Pembelian;
 use App\Models\Penjualan;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -40,11 +29,11 @@ class HomeController extends Controller
         // Card Data
         $total_pembelian = Pembelian::select(DB::raw('SUM(total) as total'))->when(!$user->is_admin, function ($query) use ($user) {
             $query->where('user_id', $user->id);
-        })->value('total');
+        })->whereBetween('tanggal', [$start, $end])->value('total');
 
         $total_penjualan = Penjualan::select(DB::raw('SUM(total) as total'))->when(!$user->is_admin, function ($query) use ($user) {
             $query->where('user_id', $user->id);
-        })->value('total');
+        })->whereBetween('tanggal', [$start, $end])->value('total');
 
         // Grafik
         $penjualan = Penjualan::select(DB::raw('DATE(tanggal) as tanggal, SUM(total) as total'))
@@ -67,7 +56,7 @@ class HomeController extends Controller
 
         $data_pembelian = StringFormater::formatDate($pembelian, $date_between);
 
-        return view('home', [
+        return view('home.dashboard', [
             'penjualan' => $total_penjualan,
             'pembelian' => $total_pembelian,
             'tanggal' => $tanggal,
@@ -76,5 +65,20 @@ class HomeController extends Controller
                 'pembelian' => $data_pembelian,
             ]
         ]);
+    }
+
+    public function keranjang()
+    {
+        return view('home.keranjang');
+    }
+
+    public function penjualan()
+    {
+        return view('laporan.penjualan');
+    }
+
+    public function pembelian()
+    {
+        return view('laporan.pembelian');
     }
 }
