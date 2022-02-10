@@ -43,16 +43,16 @@ class PelangganDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('pelanggan-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('B<"d-flex justify-content-between align-items-center mt-4 mb-2 border-top pt-4"lf><tr><"mt-3 d-flex justify-content-between align-items-center"ip>')
-                    ->orderBy(0)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('print'),
-                        Button::make('reset')
-                    );
+            ->setTableId('pelanggan-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('B<"d-flex justify-content-between align-items-center mt-4 mb-2 border-top pt-4"lf><tr><"mt-3 d-flex justify-content-between align-items-center"ip>')
+            ->orderBy(0)
+            ->buttons(
+                Button::make('create'),
+                Button::make('print'),
+                Button::make('reset')
+            );
     }
 
     /**
@@ -67,10 +67,10 @@ class PelangganDataTable extends DataTable
             Column::make('nama'),
             Column::make('kontak'),
             Column::computed('action')
-            ->exportable(false)
-            ->printable(false)
-            ->width(60)
-            ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 
