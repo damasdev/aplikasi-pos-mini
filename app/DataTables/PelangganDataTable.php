@@ -32,7 +32,7 @@ class PelangganDataTable extends DataTable
      */
     public function query(Pelanggan $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->selectRaw('id, nama, kontak');
     }
 
     /**

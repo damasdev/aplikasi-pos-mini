@@ -32,7 +32,7 @@ class ProdukDataTable extends DataTable
      */
     public function query(Produk $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->selectRaw('produk.id, produk.nama, kategori.nama as kategori')->leftJoin('kategori', 'kategori.id', 'produk.kategori_id');
     }
 
     /**
@@ -65,6 +65,7 @@ class ProdukDataTable extends DataTable
         return [
             Column::make('id')->title('ID'),
             Column::make('nama'),
+            Column::make('kategori')->name('kategori.nama'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

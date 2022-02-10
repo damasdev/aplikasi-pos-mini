@@ -32,7 +32,7 @@ class SuplierDataTable extends DataTable
      */
     public function query(Suplier $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->selectRaw('id, nama');
     }
 
     /**
