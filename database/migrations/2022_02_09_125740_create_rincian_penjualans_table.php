@@ -15,8 +15,8 @@ class CreateRincianPenjualansTable extends Migration
     {
         Schema::create('rincian_penjualan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('produk_id');
-            $table->unsignedBigInteger('penjualan_id');
+            $table->unsignedBigInteger('produk_id')->index();
+            $table->unsignedBigInteger('penjualan_id')->index();
             $table->integer('total');
             $table->timestamps();
 
