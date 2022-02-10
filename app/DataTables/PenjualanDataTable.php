@@ -32,8 +32,13 @@ class PenjualanDataTable extends DataTable
      */
     public function query(Penjualan $model)
     {
+        $user = auth()->user();
+
         return $model->newQuery()
             ->selectRaw('penjualan.id, penjualan.tanggal, penjualan.total, produk.nama as produk, pelanggan.nama as pelanggan, users.name as user')
+            ->when(!$user->is_admin, function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })
             ->leftJoin('produk', 'produk.id', 'penjualan.produk_id')
             ->leftJoin('users', 'users.id', 'penjualan.user_id')
             ->leftJoin('pelanggan', 'pelanggan.id', 'penjualan.pelanggan_id');

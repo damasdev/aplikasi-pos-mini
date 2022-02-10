@@ -32,8 +32,13 @@ class PembelianDataTable extends DataTable
      */
     public function query(Pembelian $model)
     {
+        $user = auth()->user();
+
         return $model->newQuery()
             ->selectRaw('pembelian.id, pembelian.tanggal, pembelian.total, produk.nama as produk, suplier.nama as suplier, users.name as user')
+            ->when(!$user->is_admin, function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })
             ->leftJoin('produk', 'produk.id', 'pembelian.produk_id')
             ->leftJoin('users', 'users.id', 'pembelian.user_id')
             ->leftJoin('suplier', 'suplier.id', 'pembelian.suplier_id');
