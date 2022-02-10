@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Helper\DateFormater;
 use App\Helper\StringFormater;
+use App\Models\Pelanggan;
 use App\Models\Pembelian;
 use App\Models\Penjualan;
+use App\Models\Produk;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -22,6 +24,58 @@ class HomeController extends Controller
         $start = date('Y-m-01');
         $end = date('Y-m-t');
 
+        // Get Data
+        $data = $this->getData($user, $start, $end);
+
+        return view('home.dashboard', $data);
+    }
+
+    /**
+     * Menampilkan halaman list produk
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function keranjang()
+    {
+        $produk = Produk::paginate(6);
+        $pelanggan = Pelanggan::selectRaw('id, nama')->get();
+
+        return view('home.keranjang', [
+            'produk' => $produk,
+            'pelanggan' => $pelanggan,
+        ]);
+    }
+
+    /**
+     * Menampilkan laporan penjualan
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function penjualan()
+    {
+        return view('laporan.penjualan');
+    }
+
+    /**
+     * Menampilkan laporan pembelian
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function pembelian()
+    {
+        return view('laporan.pembelian');
+    }
+
+    /**
+     * Get Data Transaksi
+     *
+     * @param  object $user
+     * @param  string $start
+     * @param  string $end
+     * @return array
+     */
+    private function getData($user, $start, $end)
+    {
         // Tanggal
         $date_between = DateFormater::between($start, $end);
         $tanggal = StringFormater::arrayToString($date_between);
@@ -56,7 +110,7 @@ class HomeController extends Controller
 
         $data_pembelian = StringFormater::formatDate($pembelian, $date_between);
 
-        return view('home.dashboard', [
+        return [
             'penjualan' => $total_penjualan,
             'pembelian' => $total_pembelian,
             'tanggal' => $tanggal,
@@ -64,21 +118,6 @@ class HomeController extends Controller
                 'penjualan' => $data_penjualan,
                 'pembelian' => $data_pembelian,
             ]
-        ]);
-    }
-
-    public function keranjang()
-    {
-        return view('home.keranjang');
-    }
-
-    public function penjualan()
-    {
-        return view('laporan.penjualan');
-    }
-
-    public function pembelian()
-    {
-        return view('laporan.pembelian');
+        ];
     }
 }
