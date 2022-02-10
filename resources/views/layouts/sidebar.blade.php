@@ -1,8 +1,8 @@
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
     <div class="c-sidebar-brand d-md-down-none">
-        <span class="c-sidebar-brand-full"><i class="cib-probot"></i> {{ config('app.name') }}</span>
+        <span class="c-sidebar-brand-full"><i class="cil-cart"></i> {{ config('app.name') }}</span>
         <span class="c-sidebar-brand-minimized">
-            <i class="cib-probot"></i>
+            <i class="cil-cart"></i>
         </span>
     </div>
     <ul class="c-sidebar-nav">

@@ -11,6 +11,12 @@ const mix = require("laravel-mix");
  |
  */
 
+mix.copy("node_modules/@coreui/utils/dist/coreui-utils.js", "public/js");
+mix.copy(
+    "node_modules/@coreui/chartjs/dist/js/coreui-chartjs.min.js",
+    "public/js"
+);
+
 mix.js("resources/js/app.js", "public/js").sass(
     "resources/sass/app.scss",
     "public/css"
