@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GambarController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/keranjang', [App\Http\Controllers\HomeController::class, 'keranjang'])->name('keranjang');
+    Route::post('/gambar', [GambarController::class, 'upload'])->name('gambar');
 
     // Transaksi
     Route::resources([

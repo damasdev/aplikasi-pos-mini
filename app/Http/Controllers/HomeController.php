@@ -37,7 +37,7 @@ class HomeController extends Controller
      */
     public function keranjang()
     {
-        $produk = Produk::paginate(6);
+        $produk = Produk::paginate(3);
         $pelanggan = Pelanggan::selectRaw('id, nama')->get();
 
         return view('home.keranjang', [

@@ -8,8 +8,12 @@
                 <div class="col-sm-6 col-md-4 mb-4">
                     <x-card class="h-100 text-center">
                         <div>
-                            <div class="my-4">
-                                IMG
+                            <div class="mb-4">
+                                @if (!!$item->gambar)
+                                    <img src='{{ asset('uploads/' . $item->gambar->nama) }}' class="card-img">
+                                @else
+                                    -
+                                @endif
                             </div>
                             <div class="mb-4">
                                 <h6>{{ $item->nama }}</h6>
@@ -53,8 +57,8 @@
                                 @endforeach
                             </x-form-select>
                         </div>
-                        <x-form-input name="total" label="Total" type="number" />
-                        <x-form-input name="tanggal" type="date" value="{{ date('Y-m-d') }}" hidden/>
+                        <x-form-input name="total" label="Total" type="number" value="1" />
+                        <x-form-input name="tanggal" type="date" value="{{ date('Y-m-d') }}" hidden />
                         <x-form-input name="produk_id" id="produk_id" hidden />
                     </div>
                     <div class="modal-footer">

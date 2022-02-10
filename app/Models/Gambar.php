@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Produk extends Model
+class Gambar extends Model
 {
     use HasFactory;
 
-    public $table = "produk";
+    public $table = "gambar";
 
     public $guarded = [];
-
-    public function gambar()
-    {
-        return $this->belongsTo(Gambar::class, 'gambar_id');
-    }
 }
