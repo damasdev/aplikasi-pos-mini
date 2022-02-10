@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Pelanggan;
+use App\Models\Pembelian;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class PelangganDataTable extends DataTable
+class PembelianDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,18 +21,22 @@ class PelangganDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'pelanggan.action');
+            ->addColumn('action', 'pembelian.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Pelanggan $model
+     * @param \App\Models\Pembelian $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Pelanggan $model)
+    public function query(Pembelian $model)
     {
-        return $model->newQuery()->selectRaw('id, nama, kontak');
+        return $model->newQuery()
+            ->selectRaw('pembelian.id, pembelian.tanggal, pembelian.total, produk.nama as produk, suplier.nama as suplier, users.name as user')
+            ->leftJoin('produk', 'produk.id', 'pembelian.produk_id')
+            ->leftJoin('users', 'users.id', 'pembelian.user_id')
+            ->leftJoin('suplier', 'suplier.id', 'pembelian.suplier_id');
     }
 
     /**
@@ -43,7 +47,7 @@ class PelangganDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-            ->setTableId('pelanggan-table')
+            ->setTableId('pembelian-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('B<"d-flex justify-content-between align-items-center mt-4 mb-2 border-top pt-4"lf><tr><"mt-3 d-flex justify-content-between align-items-center"ip>')
@@ -63,9 +67,11 @@ class PelangganDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('id')->title('ID'),
-            Column::make('nama'),
-            Column::make('kontak'),
+            Column::make('tanggal'),
+            Column::make('suplier')->name('suplier.nama'),
+            Column::make('produk')->name('produk.nama'),
+            Column::make('total'),
+            Column::make('user')->name('user.name'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -81,6 +87,6 @@ class PelangganDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Pelanggan_' . date('YmdHis');
+        return 'Pembelian_' . date('YmdHis');
     }
 }

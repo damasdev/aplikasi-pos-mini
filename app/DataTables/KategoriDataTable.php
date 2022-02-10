@@ -32,7 +32,7 @@ class KategoriDataTable extends DataTable
      */
     public function query(Kategori $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->selectRaw('id, nama');
     }
 
     /**

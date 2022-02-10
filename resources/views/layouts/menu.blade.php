@@ -9,12 +9,12 @@
     </a>
     <ul class="c-sidebar-nav-dropdown-items">
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('home') }}">
+            <a class="c-sidebar-nav-link" href="{{ route('penjualan.index') }}">
                 <span class="c-sidebar-nav-icon"></span> Penjualan
             </a>
         </li>
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('home') }}">
+            <a class="c-sidebar-nav-link" href="{{ route('pembelian.index') }}">
                 <span class="c-sidebar-nav-icon"></span> Pembelian
             </a>
         </li>

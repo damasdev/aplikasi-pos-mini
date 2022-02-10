@@ -18,6 +18,13 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Transaksi
+Route::resources([
+    'penjualan' => App\Http\Controllers\PenjualanController::class,
+    'pembelian' => App\Http\Controllers\PembelianController::class,
+]);
+
+// Master Data
 Route::resources([
     'produk' => App\Http\Controllers\ProdukController::class,
     'kategori' => App\Http\Controllers\KategoriController::class,

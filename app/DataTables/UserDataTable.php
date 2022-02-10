@@ -32,7 +32,7 @@ class UserDataTable extends DataTable
      */
     public function query(User $model)
     {
-        return $model->newQuery()->user();
+        return $model->newQuery()->user()->selectRaw('id, name, email');
     }
 
     /**
