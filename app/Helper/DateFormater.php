@@ -8,17 +8,18 @@ use DatePeriod;
 class DateFormater
 {
     /**
-     * Get List Of Date Between Two Date
+     * Get List Of Date Between Two Date.
      *
-     * @param  string $start
-     * @param  string $end
+     * @param string $start
+     * @param string $end
+     *
      * @return array
      */
     public static function between(string $start, string $end)
     {
         // Init Date
         $start_date = date_create($start);
-        $end_date   = date_create($end);
+        $end_date = date_create($end);
 
         // Create Date Period
         $interval = DateInterval::createFromDateString('1 day');

@@ -2,9 +2,9 @@
 
 namespace App\View\Components;
 
-use Illuminate\View\Component;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ViewErrorBag;
+use Illuminate\View\Component;
 
 class Form extends Component
 {
@@ -15,7 +15,7 @@ class Form extends Component
 
     /**
      * Form method spoofing to support PUT, PATCH and DELETE actions.
-     * https://laravel.com/docs/master/routing#form-method-spoofing
+     * https://laravel.com/docs/master/routing#form-method-spoofing.
      */
     public bool $spoofMethod = false;
 
@@ -35,11 +35,12 @@ class Form extends Component
      * Returns a boolean wether the error bag is not empty.
      *
      * @param string $bag
-     * @return boolean
+     *
+     * @return bool
      */
     public function hasError($bag = 'default'): bool
     {
-        $errors = View::shared('errors', fn () => request()->session()->get('errors', new ViewErrorBag));
+        $errors = View::shared('errors', fn () => request()->session()->get('errors', new ViewErrorBag()));
 
         return $errors->getBag($bag)->isNotEmpty();
     }

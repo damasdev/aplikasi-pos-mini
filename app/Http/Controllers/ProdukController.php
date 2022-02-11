@@ -29,14 +29,15 @@ class ProdukController extends Controller
         $kategori = Kategori::selectRaw('id, nama')->get();
 
         return view('produk.create', [
-            'kategori' => $kategori
+            'kategori' => $kategori,
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(ProdukRequest $request)
@@ -49,20 +50,22 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Produk  $produk
+     * @param App\Models\Produk $produk
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Produk $produk)
     {
         return view('produk.show', [
-            'produk' => $produk
+            'produk' => $produk,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Produk  $produk
+     * @param App\Models\Produk $produk
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Produk $produk)
@@ -70,7 +73,7 @@ class ProdukController extends Controller
         $kategori = Kategori::selectRaw('id, nama')->get();
 
         return view('produk.edit', [
-            'produk' => $produk,
+            'produk'   => $produk,
             'kategori' => $kategori,
         ]);
     }
@@ -78,8 +81,9 @@ class ProdukController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Produk  $produk
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Produk       $produk
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(ProdukRequest $request, Produk $produk)
@@ -92,7 +96,8 @@ class ProdukController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\Produk  $produk
+     * @param App\Models\Produk $produk
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Produk $produk)

@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Models\Pembelian;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class PembelianDataTable extends DataTable
@@ -15,6 +13,7 @@ class PembelianDataTable extends DataTable
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
+     *
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -28,6 +27,7 @@ class PembelianDataTable extends DataTable
      * Get query source of dataTable.
      *
      * @param \App\Models\Pembelian $model
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Pembelian $model)
@@ -92,6 +92,6 @@ class PembelianDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Pembelian_' . date('YmdHis');
+        return 'Pembelian_'.date('YmdHis');
     }
 }

@@ -8,7 +8,7 @@ use App\Models\Pelanggan;
 
 class PelangganController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -31,7 +31,8 @@ class PelangganController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(PelangganRequest $request)
@@ -44,34 +45,37 @@ class PelangganController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Pelanggan  $pelanggan
+     * @param App\Models\Pelanggan $pelanggan
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Pelanggan $pelanggan)
     {
         return view('pelanggan.show', [
-            'pelanggan' => $pelanggan
+            'pelanggan' => $pelanggan,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Pelanggan  $pelanggan
+     * @param App\Models\Pelanggan $pelanggan
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Pelanggan $pelanggan)
     {
         return view('pelanggan.edit', [
-            'pelanggan' => $pelanggan
+            'pelanggan' => $pelanggan,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pelanggan  $pelanggan
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Pelanggan    $pelanggan
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(PelangganRequest $request, Pelanggan $pelanggan)
@@ -84,7 +88,8 @@ class PelangganController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\Pelanggan  $pelanggan
+     * @param App\Models\Pelanggan $pelanggan
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Pelanggan $pelanggan)

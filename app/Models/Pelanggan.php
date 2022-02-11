@@ -9,7 +9,7 @@ class Pelanggan extends Model
 {
     use HasFactory;
 
-    public $table = "pelanggan";
+    public $table = 'pelanggan';
 
     public $guarded = [];
 }

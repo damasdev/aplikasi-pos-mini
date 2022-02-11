@@ -17,9 +17,9 @@ class FormRadio extends Component
         string $label = '',
         $value = 1
     ) {
-        $this->name       = $name;
-        $this->label      = $label;
-        $this->value      = $value;
+        $this->name = $name;
+        $this->label = $label;
+        $this->value = $value;
 
         if (old($name) !== null) {
             $this->checked = old($name) == $value;

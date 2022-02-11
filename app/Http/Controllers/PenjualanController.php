@@ -7,7 +7,6 @@ use App\Http\Requests\PenjualanRequest;
 use App\Models\Pelanggan;
 use App\Models\Penjualan;
 use App\Models\Produk;
-use Illuminate\Http\Request;
 
 class PenjualanController extends Controller
 {
@@ -33,20 +32,21 @@ class PenjualanController extends Controller
 
         return view('penjualan.create', [
             'pelanggan' => $pelanggan,
-            'produk' => $produk,
+            'produk'    => $produk,
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(PenjualanRequest $request)
     {
         $request->merge([
-            'user_id' => auth()->id()
+            'user_id' => auth()->id(),
         ]);
 
         Penjualan::create($request->all());
@@ -57,20 +57,22 @@ class PenjualanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Penjualan  $penjualan
+     * @param App\Models\Penjualan $penjualan
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Penjualan $penjualan)
     {
         return view('penjualan.show', [
-            'penjualan' => $penjualan
+            'penjualan' => $penjualan,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Penjualan  $penjualan
+     * @param App\Models\Penjualan $penjualan
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Penjualan $penjualan)
@@ -80,16 +82,17 @@ class PenjualanController extends Controller
 
         return view('penjualan.edit', [
             'pelanggan' => $pelanggan,
-            'produk' => $produk,
-            'penjualan' => $penjualan
+            'produk'    => $produk,
+            'penjualan' => $penjualan,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Penjualan  $penjualan
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Penjualan    $penjualan
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(PenjualanRequest $request, Penjualan $penjualan)
@@ -102,7 +105,8 @@ class PenjualanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\Penjualan  $penjualan
+     * @param App\Models\Penjualan $penjualan
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Penjualan $penjualan)

@@ -9,7 +9,7 @@ class Penjualan extends Model
 {
     use HasFactory;
 
-    public $table = "penjualan";
+    public $table = 'penjualan';
 
     public $guarded = [];
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\DataTables\SuplierDataTable;
 use App\Http\Requests\SuplierRequest;
 use App\Models\Suplier;
-use Illuminate\Http\Request;
 
 class SuplierController extends Controller
 {
@@ -32,7 +31,8 @@ class SuplierController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(SuplierRequest $request)
@@ -45,34 +45,37 @@ class SuplierController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Suplier  $suplier
+     * @param App\Models\Suplier $suplier
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Suplier $suplier)
     {
         return view('suplier.show', [
-            'suplier' => $suplier
+            'suplier' => $suplier,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Suplier  $suplier
+     * @param App\Models\Suplier $suplier
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Suplier $suplier)
     {
         return view('suplier.edit', [
-            'suplier' => $suplier
+            'suplier' => $suplier,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Suplier  $suplier
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Suplier      $suplier
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(SuplierRequest $request, Suplier $suplier)
@@ -85,7 +88,8 @@ class SuplierController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\Suplier  $suplier
+     * @param App\Models\Suplier $suplier
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Suplier $suplier)

@@ -25,7 +25,7 @@ class SuplierSeeder extends Seeder
 
         foreach ($items as $item) {
             Suplier::create([
-                'nama' => $item['nama']
+                'nama' => $item['nama'],
             ]);
         }
     }

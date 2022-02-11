@@ -31,7 +31,8 @@ class KategoriController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(KategoriRequest $request)
@@ -44,34 +45,37 @@ class KategoriController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Kategori  $kategori
+     * @param App\Models\Kategori $kategori
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Kategori $kategori)
     {
         return view('kategori.show', [
-            'kategori' => $kategori
+            'kategori' => $kategori,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Kategori  $kategori
+     * @param App\Models\Kategori $kategori
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Kategori $kategori)
     {
         return view('kategori.edit', [
-            'kategori' => $kategori
+            'kategori' => $kategori,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Kategori  $kategori
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Kategori     $kategori
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(KategoriRequest $request, Kategori $kategori)
@@ -84,7 +88,8 @@ class KategoriController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\Kategori  $kategori
+     * @param App\Models\Kategori $kategori
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Kategori $kategori)

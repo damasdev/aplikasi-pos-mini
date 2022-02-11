@@ -32,7 +32,8 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(UserRequest $request)
@@ -40,8 +41,8 @@ class UserController extends Controller
         $data = $request->all();
 
         User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
 
@@ -51,34 +52,37 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\User  $user
+     * @param App\Models\User $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
     {
         return view('user.show', [
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\User  $user
+     * @param App\Models\User $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
     {
         return view('user.edit', [
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User         $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(UserRequest $request, User $user)
@@ -86,8 +90,8 @@ class UserController extends Controller
         $data = $request->all();
 
         $user->update([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
 
@@ -97,7 +101,8 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\User  $user
+     * @param App\Models\User $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

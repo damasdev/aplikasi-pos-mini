@@ -63,7 +63,7 @@ return [
             'create',
             'export',
             'print',
-            'reset'
+            'reset',
         ],
     ],
 

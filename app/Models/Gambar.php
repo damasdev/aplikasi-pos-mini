@@ -9,7 +9,7 @@ class Gambar extends Model
 {
     use HasFactory;
 
-    public $table = "gambar";
+    public $table = 'gambar';
 
     public $guarded = [];
 }

@@ -3,8 +3,8 @@
 namespace App\View\Components;
 
 use Illuminate\Support\Arr;
-use Illuminate\View\Component;
 use Illuminate\Support\Str;
+use Illuminate\View\Component;
 
 class FormCheckbox extends Component
 {
@@ -24,9 +24,9 @@ class FormCheckbox extends Component
         string $label = '',
         $value = 1
     ) {
-        $this->name       = $name;
-        $this->label      = $label;
-        $this->value      = $value;
+        $this->name = $name;
+        $this->label = $label;
+        $this->value = $value;
 
         $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
         if ($oldData = old($inputName)) {
@@ -47,9 +47,10 @@ class FormCheckbox extends Component
     }
 
     /**
-     * Converts a bracket-notation to a dotted-notation
+     * Converts a bracket-notation to a dotted-notation.
      *
      * @param string $name
+     *
      * @return string
      */
     protected static function convertBracketsToDots($name): string

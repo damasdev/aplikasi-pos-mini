@@ -15,15 +15,15 @@ class GambarSeeder extends Seeder
     public function run()
     {
         $items = [
-            "paket-advance.png",
-            "paket-desktop.png",
-            "paket-lifestyle.png",
-            "paket-standard.png",
+            'paket-advance.png',
+            'paket-desktop.png',
+            'paket-lifestyle.png',
+            'paket-standard.png',
         ];
 
         foreach ($items as $item) {
             Gambar::create([
-                'nama' => $item
+                'nama' => $item,
             ]);
         }
     }

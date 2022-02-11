@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Models\Kategori;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class KategoriDataTable extends DataTable
@@ -15,6 +13,7 @@ class KategoriDataTable extends DataTable
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
+     *
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -28,6 +27,7 @@ class KategoriDataTable extends DataTable
      * Get query source of dataTable.
      *
      * @param \App\Models\Kategori $model
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Kategori $model)
@@ -80,6 +80,6 @@ class KategoriDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Kategori_' . date('YmdHis');
+        return 'Kategori_'.date('YmdHis');
     }
 }

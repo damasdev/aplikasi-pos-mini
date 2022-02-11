@@ -6,7 +6,7 @@ class StringFormater
 {
     public static function arrayToString(array $arr)
     {
-        return "'" . implode("','", $arr) . "'";
+        return "'".implode("','", $arr)."'";
     }
 
     public static function formatDate(array $data, array $date)
@@ -28,6 +28,6 @@ class StringFormater
             }
         }
 
-        return implode(",", $items);
+        return implode(',', $items);
     }
 }
