@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\DataTables\PembelianDataTable;
 use App\Http\Requests\PembelianRequest;
-use App\Models\Suplier;
 use App\Models\Pembelian;
 use App\Models\Produk;
-use Illuminate\Http\Request;
+use App\Models\Suplier;
 
 class PembelianController extends Controller
 {
@@ -33,20 +32,21 @@ class PembelianController extends Controller
 
         return view('pembelian.create', [
             'suplier' => $suplier,
-            'produk' => $produk,
+            'produk'  => $produk,
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(PembelianRequest $request)
     {
         $request->merge([
-            'user_id' => auth()->id()
+            'user_id' => auth()->id(),
         ]);
 
         Pembelian::create($request->all());
@@ -57,20 +57,22 @@ class PembelianController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Pembelian  $pembelian
+     * @param App\Models\Pembelian $pembelian
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Pembelian $pembelian)
     {
         return view('pembelian.show', [
-            'pembelian' => $pembelian
+            'pembelian' => $pembelian,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Pembelian  $pembelian
+     * @param App\Models\Pembelian $pembelian
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Pembelian $pembelian)
@@ -80,16 +82,17 @@ class PembelianController extends Controller
 
         return view('pembelian.edit', [
             'pembelian' => $pembelian,
-            'suplier' => $suplier,
-            'produk' => $produk,
+            'suplier'   => $suplier,
+            'produk'    => $produk,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pembelian  $pembelian
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Pembelian    $pembelian
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(PembelianRequest $request, Pembelian $pembelian)
@@ -102,7 +105,8 @@ class PembelianController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\Pembelian  $pembelian
+     * @param App\Models\Pembelian $pembelian
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Pembelian $pembelian)

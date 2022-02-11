@@ -9,7 +9,7 @@ class Produk extends Model
 {
     use HasFactory;
 
-    public $table = "produk";
+    public $table = 'produk';
 
     public $guarded = [];
 

@@ -9,7 +9,7 @@ class Pembelian extends Model
 {
     use HasFactory;
 
-    public $table = "pembelian";
+    public $table = 'pembelian';
 
     public $guarded = [];
 

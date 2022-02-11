@@ -31,7 +31,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Menampilkan halaman list produk
+     * Menampilkan halaman list produk.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -41,13 +41,13 @@ class HomeController extends Controller
         $pelanggan = Pelanggan::selectRaw('id, nama')->get();
 
         return view('home.keranjang', [
-            'produk' => $produk,
+            'produk'    => $produk,
             'pelanggan' => $pelanggan,
         ]);
     }
 
     /**
-     * Menampilkan laporan penjualan
+     * Menampilkan laporan penjualan.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -58,12 +58,12 @@ class HomeController extends Controller
 
         return view('laporan.penjualan', [
             'penjualan' => $penjualan,
-            'produk' => $produk,
+            'produk'    => $produk,
         ]);
     }
 
     /**
-     * Menampilkan laporan pembelian
+     * Menampilkan laporan pembelian.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -74,16 +74,17 @@ class HomeController extends Controller
 
         return view('laporan.pembelian', [
             'pembelian' => $pembelian,
-            'produk' => $produk,
+            'produk'    => $produk,
         ]);
     }
 
     /**
-     * Get Data Transaksi
+     * Get Data Transaksi.
      *
-     * @param  object $user
-     * @param  string $start
-     * @param  string $end
+     * @param object $user
+     * @param string $start
+     * @param string $end
+     *
      * @return array
      */
     private function getData($user, $start, $end)
@@ -125,11 +126,11 @@ class HomeController extends Controller
         return [
             'penjualan' => $total_penjualan,
             'pembelian' => $total_pembelian,
-            'tanggal' => $tanggal,
-            'grafik' => [
+            'tanggal'   => $tanggal,
+            'grafik'    => [
                 'penjualan' => $data_penjualan,
                 'pembelian' => $data_pembelian,
-            ]
+            ],
         ];
     }
 }

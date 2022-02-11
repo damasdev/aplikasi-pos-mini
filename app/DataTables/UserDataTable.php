@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class UserDataTable extends DataTable
@@ -15,6 +13,7 @@ class UserDataTable extends DataTable
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
+     *
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -28,6 +27,7 @@ class UserDataTable extends DataTable
      * Get query source of dataTable.
      *
      * @param \App\Models\User $model
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(User $model)
@@ -81,6 +81,6 @@ class UserDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'User_' . date('YmdHis');
+        return 'User_'.date('YmdHis');
     }
 }

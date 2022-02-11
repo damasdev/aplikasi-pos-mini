@@ -17,9 +17,9 @@ class FormGroup extends Component
      */
     public function __construct(string $name = '', string $label = '', bool $inline = false)
     {
-        $this->name       = $name;
-        $this->label      = $label;
-        $this->inline     = $inline;
+        $this->name = $name;
+        $this->label = $label;
+        $this->inline = $inline;
     }
 
     /**

@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Models\Pelanggan;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class PelangganDataTable extends DataTable
@@ -15,6 +13,7 @@ class PelangganDataTable extends DataTable
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
+     *
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -28,6 +27,7 @@ class PelangganDataTable extends DataTable
      * Get query source of dataTable.
      *
      * @param \App\Models\Pelanggan $model
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Pelanggan $model)
@@ -81,6 +81,6 @@ class PelangganDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Pelanggan_' . date('YmdHis');
+        return 'Pelanggan_'.date('YmdHis');
     }
 }

@@ -17,25 +17,25 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'name' => 'Damas Amirul Karim',
-                'email' => 'damasamirulkarim@gmail.com',
-                'is_admin' => 0
+                'name'     => 'Damas Amirul Karim',
+                'email'    => 'damasamirulkarim@gmail.com',
+                'is_admin' => 0,
             ],
             [
-                'name' => 'Administrator',
-                'email' => 'admin@kodedasar.com',
-                'is_admin' => 1
-            ]
+                'name'     => 'Administrator',
+                'email'    => 'admin@kodedasar.com',
+                'is_admin' => 1,
+            ],
         ];
 
         foreach ($users as $user) {
             User::updateOrCreate([
-                'email' => $user['email']
+                'email' => $user['email'],
             ], [
-                'name' => $user['name'],
-                'is_admin' => $user['is_admin'],
-                'password' => Hash::make('rahasia'),
-                'email_verified_at' => now()
+                'name'              => $user['name'],
+                'is_admin'          => $user['is_admin'],
+                'password'          => Hash::make('rahasia'),
+                'email_verified_at' => now(),
             ]);
         }
     }

@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Models\Penjualan;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class PenjualanDataTable extends DataTable
@@ -15,6 +13,7 @@ class PenjualanDataTable extends DataTable
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
+     *
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -28,6 +27,7 @@ class PenjualanDataTable extends DataTable
      * Get query source of dataTable.
      *
      * @param \App\Models\Penjualan $model
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Penjualan $model)
@@ -92,6 +92,6 @@ class PenjualanDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Penjualan_' . date('YmdHis');
+        return 'Penjualan_'.date('YmdHis');
     }
 }

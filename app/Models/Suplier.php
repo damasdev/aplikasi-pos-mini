@@ -9,7 +9,7 @@ class Suplier extends Model
 {
     use HasFactory;
 
-    public $table = "suplier";
+    public $table = 'suplier';
 
     public $guarded = [];
 }

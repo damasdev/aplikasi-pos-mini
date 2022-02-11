@@ -9,7 +9,7 @@ class Kategori extends Model
 {
     use HasFactory;
 
-    public $table = "kategori";
+    public $table = 'kategori';
 
     public $guarded = [];
 }

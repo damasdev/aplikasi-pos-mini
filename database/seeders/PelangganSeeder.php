@@ -16,18 +16,18 @@ class PelangganSeeder extends Seeder
     {
         $items = [
             [
-                'nama' => 'Damas Amirul Karim',
+                'nama'   => 'Damas Amirul Karim',
                 'kontak' => '081575768529',
             ],
             [
-                'nama' => 'Naila Unlia Kurniasari',
+                'nama'   => 'Naila Unlia Kurniasari',
                 'kontak' => '08123456789',
             ],
         ];
 
         foreach ($items as $item) {
             Pelanggan::create([
-                'nama' => $item['nama'],
+                'nama'   => $item['nama'],
                 'kontak' => $item['kontak'],
             ]);
         }

@@ -24,9 +24,9 @@ class ProdukRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => ['required', 'string', 'min:3', 'max:100', 'unique:produk'],
+            'nama'      => ['required', 'string', 'min:3', 'max:100', 'unique:produk'],
             'deskripsi' => ['required', 'string', 'min:3'],
-            'harga' => ['required', 'int'],
+            'harga'     => ['required', 'int'],
             'gambar_id' => ['nullable', 'int'],
         ];
     }

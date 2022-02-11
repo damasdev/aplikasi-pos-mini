@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Models\Suplier;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class SuplierDataTable extends DataTable
@@ -15,6 +13,7 @@ class SuplierDataTable extends DataTable
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
+     *
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -28,6 +27,7 @@ class SuplierDataTable extends DataTable
      * Get query source of dataTable.
      *
      * @param \App\Models\Suplier $model
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Suplier $model)
@@ -80,6 +80,6 @@ class SuplierDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Suplier_' . date('YmdHis');
+        return 'Suplier_'.date('YmdHis');
     }
 }

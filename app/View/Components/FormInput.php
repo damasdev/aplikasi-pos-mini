@@ -22,12 +22,12 @@ class FormInput extends Component
         string $label = '',
         string $type = 'text'
     ) {
-        $this->name     = $name;
-        $this->label    = $label;
-        $this->type     = $type;
+        $this->name = $name;
+        $this->label = $label;
+        $this->type = $type;
 
         // Set Value
-        $this->value    = old("{$name}");
+        $this->value = old("{$name}");
     }
 
     /**

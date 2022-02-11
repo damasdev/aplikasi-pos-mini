@@ -18,11 +18,11 @@ class FormTextarea extends Component
      */
     public function __construct(string $name, string $label)
     {
-        $this->name     = $name;
-        $this->label    = $label;
+        $this->name = $name;
+        $this->label = $label;
 
         // Set Value
-        $this->value    = old("{$name}");
+        $this->value = old("{$name}");
     }
 
     /**

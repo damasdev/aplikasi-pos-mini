@@ -31,7 +31,7 @@ class KategoriSeeder extends Seeder
 
         foreach ($items as $item) {
             Kategori::create([
-                'nama' => $item['nama']
+                'nama' => $item['nama'],
             ]);
         }
     }

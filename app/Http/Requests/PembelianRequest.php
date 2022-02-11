@@ -24,9 +24,9 @@ class PembelianRequest extends FormRequest
     public function rules()
     {
         return [
-            'tanggal' => ['required', 'date'],
-            'total' => ['required', 'int'],
-            'produk_id' => ['required', 'int'],
+            'tanggal'    => ['required', 'date'],
+            'total'      => ['required', 'int'],
+            'produk_id'  => ['required', 'int'],
             'suplier_id' => ['required', 'int'],
         ];
     }

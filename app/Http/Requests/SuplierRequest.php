@@ -24,7 +24,7 @@ class SuplierRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => ['required', 'string', 'min:3', 'max:100']
+            'nama' => ['required', 'string', 'min:3', 'max:100'],
         ];
     }
 }
