@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GambarRequest;
 use App\Models\Gambar;
-use Illuminate\Http\Request;
 
 class GambarController extends Controller
 {
-    public function upload(Request $request)
+    public function upload(GambarRequest $request)
     {
-        $request->validate([
-            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $nama = time().'.'.request()->file->getClientOriginalExtension();
+        $nama = time() . '.' . request()->file->getClientOriginalExtension();
         $request->file->move(public_path('uploads'), $nama);
 
         $file = new Gambar();
