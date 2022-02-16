@@ -9,7 +9,7 @@ class GambarController extends Controller
 {
     public function upload(GambarRequest $request)
     {
-        $nama = time() . '.' . request()->file->getClientOriginalExtension();
+        $nama = time().'.'.request()->file->getClientOriginalExtension();
         $request->file->move(public_path('uploads'), $nama);
 
         $file = new Gambar();
